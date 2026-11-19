@@ -96,3 +96,19 @@ DROP TABLE lista_compra;
 DROP TABLE reparto;
 DROP TABLE tareas;
 DROP TABLE personas;
+
+-- EN LA TABLA TAREAS AÑADIMOS UN CAMPO EXTRA CON ALTER, LLAMADO DESCRIPCIÓN. NO ES OBLIGATORIO RELLENAR EL CAMPO (NULL).
+ALTER TABLE tareas ADD COLUMN descripcion varchar(200) NULL;
+
+-- INSERTAMOS LOS DATOS A LAS FILAS QUE YA TENEMOS, SI LO HACEMOS CON UN INSERT CREA NUEVAS FILAS Y NO QUEREMOS ESO.
+UPDATE tareas
+SET descripcion = 'Fregar los platos y las sartenes con un estropajo'
+WHERE idTarea = 1;
+
+UPDATE tareas
+SET descripcion = 'Tirar la basura de la semana a la hora permitida'
+WHERE idTarea = 2;
+
+UPDATE tareas
+SET descripcion = 'Barrer y fregar todas las zonas de la casa'
+WHERE idTarea = 3;
